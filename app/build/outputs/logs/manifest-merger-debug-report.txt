@@ -1,0 +1,146 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:1-23:12
+INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:1-23:12
+INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:1-23:12
+INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:1-23:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/appcompat-1.1.0.aar/d60bb8e509f42e36b29b133c75e4d84a/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.2.0-beta01] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/core-ktx-1.2.0-beta01.aar/9f30d332d9b4d27c80358824f73088b9/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/663dc10890ba99d62067d1bde803a27e/AndroidManifest.xml:2:1-11:12
+MERGED from [:openCVJava] /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/openCVJava/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0.aar/6dcb186d4523346bb96adbcd4d09a48c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/fragment-1.1.0.aar/6f8541de1dd9e9355ddef45bd85d03ee/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/appcompat-resources-1.1.0.aar/a98bd0f8f3286d1fd5336dd28ac1c1ac/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0.aar/c6b5faaff6ad8d1c765910ebf5746fd3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0.aar/63c50712e1002db84cb190ab6d501dd6/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/loader-1.0.0.aar/8f44f7d7e614ebfdc029a71837ecb618/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/activity-1.0.0.aar/0c022e39e0b2bc90d8594d1e5b20aafc/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.1.0.aar/927a535b834b399252c67e8f4b16da3b/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/vectordrawable-1.1.0.aar/eacbfbf7ae8914f4eaadcd565b85c9a2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/customview-1.0.0.aar/6f3fcd3a781b4ca09d054ee66305637c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.2.0-beta01] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/core-1.2.0-beta01.aar/641ddd29f132bb176bd18efa2f8fb2b6/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.1.0.aar/8a3fdf7e019afe37683791b55b69c626/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.1.0.aar/f9a06d63d3340871f4000702d29a7f6a/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.1.0.aar/f1073a5275692c4e2f31bfb0970a16f4/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/savedstate-1.0.0.aar/b94ec39148ca3e2b4d7740cef8991090/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0.aar/f746a25a6251743d3241a981bbbc9760/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-2.0.0.aar/7b8df1e0b54eb69c589e751a8c7488b4/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0.aar/13d3bb2fbc446d71328f1bc1e70b67f3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0.aar/0b3a43c949ee51b557f522864b87c446/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:1-23:12
+INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:1-23:12
+INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:1-23:12
+	package
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:3:11-41
+		INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:1-23:12
+		INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:1-23:12
+		INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:7:5-21:19
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/663dc10890ba99d62067d1bde803a27e/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/663dc10890ba99d62067d1bde803a27e/AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.2.0-beta01] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/core-1.2.0-beta01.aar/641ddd29f132bb176bd18efa2f8fb2b6/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.2.0-beta01] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/core-1.2.0-beta01.aar/641ddd29f132bb176bd18efa2f8fb2b6/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.1.0.aar/8a3fdf7e019afe37683791b55b69c626/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.1.0.aar/8a3fdf7e019afe37683791b55b69c626/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.2.0-beta01] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/core-1.2.0-beta01.aar/641ddd29f132bb176bd18efa2f8fb2b6/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:12:13-39
+	android:label
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:10:13-45
+	android:roundIcon
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:11:13-58
+	android:icon
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:9:13-47
+	android:allowBackup
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:8:13-39
+	android:theme
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:13:13-44
+activity#org.dp.facedetection.MainActivity
+ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:14:9-20:20
+	android:name
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:14:19-67
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:15:13-19:29
+action#android.intent.action.MAIN
+ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:16:17-68
+	android:name
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:16:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:18:17-76
+	android:name
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:18:27-74
+uses-sdk
+INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/appcompat-1.1.0.aar/d60bb8e509f42e36b29b133c75e4d84a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/appcompat-1.1.0.aar/d60bb8e509f42e36b29b133c75e4d84a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.2.0-beta01] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/core-ktx-1.2.0-beta01.aar/9f30d332d9b4d27c80358824f73088b9/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.2.0-beta01] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/core-ktx-1.2.0-beta01.aar/9f30d332d9b4d27c80358824f73088b9/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/663dc10890ba99d62067d1bde803a27e/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/constraintlayout-1.1.3.aar/663dc10890ba99d62067d1bde803a27e/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0.aar/6dcb186d4523346bb96adbcd4d09a48c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0.aar/6dcb186d4523346bb96adbcd4d09a48c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/fragment-1.1.0.aar/6f8541de1dd9e9355ddef45bd85d03ee/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/fragment-1.1.0.aar/6f8541de1dd9e9355ddef45bd85d03ee/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/appcompat-resources-1.1.0.aar/a98bd0f8f3286d1fd5336dd28ac1c1ac/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/appcompat-resources-1.1.0.aar/a98bd0f8f3286d1fd5336dd28ac1c1ac/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0.aar/c6b5faaff6ad8d1c765910ebf5746fd3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0.aar/c6b5faaff6ad8d1c765910ebf5746fd3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0.aar/63c50712e1002db84cb190ab6d501dd6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0.aar/63c50712e1002db84cb190ab6d501dd6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/loader-1.0.0.aar/8f44f7d7e614ebfdc029a71837ecb618/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/loader-1.0.0.aar/8f44f7d7e614ebfdc029a71837ecb618/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/activity-1.0.0.aar/0c022e39e0b2bc90d8594d1e5b20aafc/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/activity-1.0.0.aar/0c022e39e0b2bc90d8594d1e5b20aafc/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.1.0.aar/927a535b834b399252c67e8f4b16da3b/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/vectordrawable-animated-1.1.0.aar/927a535b834b399252c67e8f4b16da3b/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/vectordrawable-1.1.0.aar/eacbfbf7ae8914f4eaadcd565b85c9a2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/vectordrawable-1.1.0.aar/eacbfbf7ae8914f4eaadcd565b85c9a2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/customview-1.0.0.aar/6f3fcd3a781b4ca09d054ee66305637c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/customview-1.0.0.aar/6f3fcd3a781b4ca09d054ee66305637c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.2.0-beta01] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/core-1.2.0-beta01.aar/641ddd29f132bb176bd18efa2f8fb2b6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.2.0-beta01] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/core-1.2.0-beta01.aar/641ddd29f132bb176bd18efa2f8fb2b6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.1.0.aar/8a3fdf7e019afe37683791b55b69c626/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.1.0.aar/8a3fdf7e019afe37683791b55b69c626/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.1.0.aar/f9a06d63d3340871f4000702d29a7f6a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.1.0.aar/f9a06d63d3340871f4000702d29a7f6a/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.1.0.aar/f1073a5275692c4e2f31bfb0970a16f4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.1.0.aar/f1073a5275692c4e2f31bfb0970a16f4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/savedstate-1.0.0.aar/b94ec39148ca3e2b4d7740cef8991090/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/savedstate-1.0.0.aar/b94ec39148ca3e2b4d7740cef8991090/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0.aar/f746a25a6251743d3241a981bbbc9760/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0.aar/f746a25a6251743d3241a981bbbc9760/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-2.0.0.aar/7b8df1e0b54eb69c589e751a8c7488b4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-2.0.0.aar/7b8df1e0b54eb69c589e751a8c7488b4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0.aar/13d3bb2fbc446d71328f1bc1e70b67f3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0.aar/13d3bb2fbc446d71328f1bc1e70b67f3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0.aar/0b3a43c949ee51b557f522864b87c446/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/gsjsb/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0.aar/0b3a43c949ee51b557f522864b87c446/AndroidManifest.xml:20:5-44
+INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:1-23:12 reason: org.opencv has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:1-23:12 reason: org.opencv has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /Users/gsjsb/StudioProjects/libfacedetection/mobile/Android/app/src/main/AndroidManifest.xml:2:1-23:12 reason: org.opencv requested WRITE_EXTERNAL_STORAGE
