@@ -5,10 +5,11 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+        maven { url "https://jitpack.io" }
+        maven { url 'http://10.115.246.232:8081/repository/maven-releases/' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath 'com.android.tools.build:gradle:3.5.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -19,7 +20,8 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        maven { url "https://jitpack.io" }
+        maven { url 'http://10.115.246.232:8081/repository/maven-releases/' }
     }
 }
 
