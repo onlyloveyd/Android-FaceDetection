@@ -1,15 +1,11 @@
 package org.dp.facedetection
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
-import android.provider.DocumentsContract
-import android.provider.MediaStore
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.ImageView
@@ -198,78 +194,4 @@ class MainActivity : AppCompatActivity() {
         }
         return size
     }
-
-    /**
-     * uri to String
-     */
-    fun getMediaPath(context: Context, uri: Uri?): String? {
-        if (uri == null) {
-            return null
-        }
-        var path = uri.path
-        if (!TextUtils.isEmpty(path) && File(path).exists()) {
-            return path
-        }
-
-        val authority = uri.authority
-        if ("com.android.providers.media.documents" == authority) {
-            val wholeId = DocumentsContract.getDocumentId(uri)
-            val typeAndId =
-                wholeId.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-            val type = typeAndId[0]
-            if ("primary".equals(type, ignoreCase = true)) {
-                path = Environment.getExternalStorageDirectory().toString() + "/" + typeAndId[1]
-                return path
-            } else {
-                var contentUri: Uri? = null
-                if ("image" == type) {
-                    contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-                } else if ("video" == type) {
-                    contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-                } else if ("audio" == type) {
-                    contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
-                }
-                val selection = "_id=?"
-                val selectionArgs = arrayOf(typeAndId[1])
-                if (contentUri != null) {
-                    val pathColumn = arrayOf(MediaStore.MediaColumns.DATA)
-                    val cursor = context.contentResolver.query(
-                        contentUri,
-                        pathColumn,
-                        selection,
-                        selectionArgs,
-                        null
-                    )
-                        ?: return null
-                    try {
-                        val index = cursor.getColumnIndexOrThrow(pathColumn[0])
-                        cursor.moveToNext()
-                        path = cursor.getString(index)
-                        return path
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                    } finally {
-                        cursor.close()
-                    }
-                }
-            }
-        } else {
-            val pathColumn = arrayOf(MediaStore.MediaColumns.DATA)
-            val cursor =
-                context.contentResolver.query(uri, pathColumn, null, null, null) ?: return null
-            try {
-                val index = cursor.getColumnIndexOrThrow(pathColumn[0])
-                cursor.moveToNext()
-                path = cursor.getString(index)
-                return path
-            } catch (e: Exception) {
-                e.printStackTrace()
-            } finally {
-                cursor.close()
-            }
-        }
-        return null
-    }
-
-
 }
