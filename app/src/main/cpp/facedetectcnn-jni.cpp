@@ -12,7 +12,7 @@ extern "C"  {
 char *JNITag = const_cast<char *>("dp-jni");
 
 JNIEXPORT jobjectArray JNICALL
-Java_org_dp_facedetection_MainActivity_facedetect(JNIEnv *env,jobject /* this */,jlong matAddr)
+Java_org_dp_facedetection_FaceDetect_faceDetect(JNIEnv *env,jobject /* this */,jlong matAddr)
 {
     jobjectArray faceArgs = nullptr;
     Mat& img  = *(Mat*)matAddr;

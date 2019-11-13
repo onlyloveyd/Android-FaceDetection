@@ -6,6 +6,9 @@ android {
 
     defaultConfig {
 //        applicationId "org.opencv"
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
     }
 
     buildTypes {

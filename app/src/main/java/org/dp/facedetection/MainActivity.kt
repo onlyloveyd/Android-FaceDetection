@@ -1,12 +1,9 @@
 package org.dp.facedetection
 
-import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.text.TextUtils
@@ -15,7 +12,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.zhihu.matisse.Matisse
 import com.zhihu.matisse.MimeType
 import com.zhihu.matisse.engine.impl.PicassoEngine
@@ -34,17 +30,9 @@ import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
-    private val PERMISSION_REQUEST_CODE = 551
-
     private lateinit var tvMessage: TextView
     private lateinit var btTakePhoto: Button
     private lateinit var ivImage: ImageView
-
-    private val REQUEST_PERMISSION =
-        arrayOf(
-            Manifest.permission.CAMERA,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-        )
 
     /**
      * 手机外部存储目录
@@ -62,6 +50,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var selectedPath: String
 
+    lateinit var faceDetect: FaceDetect;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -70,72 +60,24 @@ class MainActivity : AppCompatActivity() {
         ivImage = findViewById(R.id.imageView)
         btTakePhoto = findViewById(R.id.btPhoto)
         btTakePhoto.setOnClickListener {
-            if (checkPermission()) {
-                pickPic()
-            }
-        }
-    }
-
-    private fun pickPic() {
-        Matisse.from(this)
-            .choose(MimeType.ofImage())
-            .countable(true)
-            .capture(true)
-            .captureStrategy(
-                CaptureStrategy(
-                    true,
-                    "org.dp.facedetection.fileprovider",
-                    "facedetection"
+            Matisse.from(this)
+                .choose(MimeType.ofImage())
+                .countable(true)
+                .capture(true)
+                .captureStrategy(
+                    CaptureStrategy(
+                        true,
+                        "org.dp.facedetection.fileprovider",
+                        "facedetection"
+                    )
                 )
-            )
-            .maxSelectable(1)
-            .imageEngine(PicassoEngine())
-            .forResult(REQUEST_CODE_CHOOSE)
-    }
-
-    private fun checkPermission(): Boolean {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            return true
-        } else {
-            if (this.isFinishing) {
-                return false
-            }
-            return if (ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.CAMERA
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                requestPermissions(
-                    REQUEST_PERMISSION,
-                    PERMISSION_REQUEST_CODE
-                )
-                false
-            } else {
-                true
-            }
+                .maxSelectable(1)
+                .imageEngine(PicassoEngine())
+                .forResult(REQUEST_CODE_CHOOSE)
         }
-    }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        if (requestCode == PERMISSION_REQUEST_CODE) {
-            if (grantResults.size == 2
-                && grantResults[0] == PackageManager.PERMISSION_GRANTED
-                && grantResults[1] == PackageManager.PERMISSION_GRANTED
-            ) {
-                pickPic()
-            } else {
-                Toast.makeText(this, "未授权，无法选择图片", Toast.LENGTH_SHORT).show()
-            }
-        }
+        faceDetect = FaceDetect()
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -204,7 +146,7 @@ class MainActivity : AppCompatActivity() {
         Utils.bitmapToMat(bmp, mat)
         val FACE_RECT_COLOR = Scalar(255.0, 0.0, 0.0, 0.0)
         val startTime = System.currentTimeMillis()
-        val facesArray = facedetect(mat.nativeObjAddr)
+        val facesArray = faceDetect.doFaceDetect(file)
         str += "face num = ${facesArray.size}\n"
         for (face in facesArray) {
             str += "confidence = ${face.faceConfidence} x = ${face.faceRect.x} y = ${face.faceRect.y} width = ${face.faceRect.width} height = ${face.faceRect.height}\n"
@@ -226,14 +168,14 @@ class MainActivity : AppCompatActivity() {
      * A native method that is implemented by the 'libfacedetection' native library,
      * which is packaged with this application.
      */
-    external fun facedetect(matAddr: Long): Array<Face>
+//    external fun facedetect(matAddr: Long): Array<Face>
 
-    companion object {
-        // Used to load the 'facedetection' library on application startup.
-        init {
-            System.loadLibrary("facedetection")
-        }
-    }
+//    companion object {
+//        // Used to load the 'facedetection' library on application startup.
+//        init {
+//            System.loadLibrary("facedetection")
+//        }
+//    }
 
     fun getFileSize(file: File): String {
         var size: String
