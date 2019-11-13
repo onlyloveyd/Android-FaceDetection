@@ -1,9 +1,12 @@
 package org.dp.facedetection
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.text.TextUtils
@@ -12,6 +15,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.zhihu.matisse.Matisse
 import com.zhihu.matisse.MimeType
 import com.zhihu.matisse.engine.impl.PicassoEngine
@@ -30,9 +34,17 @@ import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
+    private val PERMISSION_REQUEST_CODE = 551
+
     private lateinit var tvMessage: TextView
     private lateinit var btTakePhoto: Button
     private lateinit var ivImage: ImageView
+
+    private val REQUEST_PERMISSION =
+        arrayOf(
+            Manifest.permission.CAMERA,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
 
     /**
      * 手机外部存储目录
@@ -58,22 +70,72 @@ class MainActivity : AppCompatActivity() {
         ivImage = findViewById(R.id.imageView)
         btTakePhoto = findViewById(R.id.btPhoto)
         btTakePhoto.setOnClickListener {
-            Matisse.from(this)
-                .choose(MimeType.ofImage())
-                .countable(true)
-                .capture(true)
-                .captureStrategy(
-                    CaptureStrategy(
-                        true,
-                        "org.dp.facedetection.fileprovider",
-                        "facedetection"
-                    )
-                )
-                .maxSelectable(1)
-                .imageEngine(PicassoEngine())
-                .forResult(REQUEST_CODE_CHOOSE)
+            if (checkPermission()) {
+                pickPic()
+            }
         }
     }
+
+    private fun pickPic() {
+        Matisse.from(this)
+            .choose(MimeType.ofImage())
+            .countable(true)
+            .capture(true)
+            .captureStrategy(
+                CaptureStrategy(
+                    true,
+                    "org.dp.facedetection.fileprovider",
+                    "facedetection"
+                )
+            )
+            .maxSelectable(1)
+            .imageEngine(PicassoEngine())
+            .forResult(REQUEST_CODE_CHOOSE)
+    }
+
+    private fun checkPermission(): Boolean {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true
+        } else {
+            if (this.isFinishing) {
+                return false
+            }
+            return if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.CAMERA
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                requestPermissions(
+                    REQUEST_PERMISSION,
+                    PERMISSION_REQUEST_CODE
+                )
+                false
+            } else {
+                true
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.size == 2
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                && grantResults[1] == PackageManager.PERMISSION_GRANTED
+            ) {
+                pickPic()
+            } else {
+                Toast.makeText(this, "未授权，无法选择图片", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
