@@ -8,7 +8,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.ImageView
@@ -45,18 +44,6 @@ class MainActivity : AppCompatActivity() {
             Manifest.permission.CAMERA,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
-
-    /**
-     * 手机外部存储目录
-     */
-    val SDCARD = Environment.getExternalStorageDirectory().absolutePath
-
-    /**
-     * 应用根目录，配置FileProvider支持
-     */
-    val APP_ROOT_DIR = SDCARD + File.separator + "pvms"
-
-    val TEMP_DIR = APP_ROOT_DIR + File.separator + "temp"
 
     private val REQUEST_CODE_CHOOSE = 1001
 
@@ -140,7 +127,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_CHOOSE) {
@@ -150,12 +136,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun compressPic(picPath: String) {
-        val tempDir = File(TEMP_DIR)
-        if (!tempDir.exists() && !tempDir.mkdirs()) {
-            Toast.makeText(this, "创建临时目录失败，不能压缩图片", Toast.LENGTH_SHORT).show()
-            return
-        }
-
         Luban.with(this)
             .load(picPath)
             .filter { path -> !(TextUtils.isEmpty(path) || path.toLowerCase().endsWith(".gif")) }
