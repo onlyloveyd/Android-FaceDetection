@@ -1,4 +1,4 @@
-package top.zibin.luban;
+package org.luban;
 
 /**
  * Created on 2018/1/3 19:43

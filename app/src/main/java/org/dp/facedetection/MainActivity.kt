@@ -19,13 +19,13 @@ import com.zhihu.matisse.Matisse
 import com.zhihu.matisse.MimeType
 import com.zhihu.matisse.engine.impl.PicassoEngine
 import com.zhihu.matisse.internal.entity.CaptureStrategy
+import org.luban.Luban
+import org.luban.OnCompressListener
 import org.opencv.android.Utils
 import org.opencv.core.MatOfRect
 import org.opencv.core.Point
 import org.opencv.core.Scalar
 import org.opencv.imgproc.Imgproc
-import top.zibin.luban.Luban
-import top.zibin.luban.OnCompressListener
 import java.io.File
 import java.io.FileInputStream
 import java.io.IOException

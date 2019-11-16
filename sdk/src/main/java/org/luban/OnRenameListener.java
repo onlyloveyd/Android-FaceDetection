@@ -1,4 +1,4 @@
-package top.zibin.luban;
+package org.luban;
 
 /**
  * Author: zibin

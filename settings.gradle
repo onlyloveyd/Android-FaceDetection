@@ -1,2 +1,1 @@
-include ':app', ':luban'
-include ':sdk'
+include ':app', ':sdk'

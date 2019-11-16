@@ -1,4 +1,4 @@
-package top.zibin.luban;
+package org.luban;
 
 import java.io.IOException;
 import java.io.InputStream;

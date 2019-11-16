@@ -1,4 +1,4 @@
-package top.zibin.luban;
+package org.luban;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
