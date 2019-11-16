@@ -50,12 +50,13 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var selectedPath: String
 
-    lateinit var faceDetect: FaceDetect;
+    lateinit var faceDetect: FaceDetect
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        faceDetect = FaceDetect()
         tvMessage = findViewById(R.id.textView)
         ivImage = findViewById(R.id.imageView)
         btTakePhoto = findViewById(R.id.btPhoto)
@@ -87,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun compressPic(picPath: String) {
+    private fun compressPic(picPath: String) {
         val tempDir = File(TEMP_DIR)
         if (!tempDir.exists() && !tempDir.mkdirs()) {
             Toast.makeText(this, "创建临时目录失败，不能压缩图片", Toast.LENGTH_SHORT).show()
@@ -96,9 +97,6 @@ class MainActivity : AppCompatActivity() {
 
         Luban.with(this)
             .load(picPath)
-            .ignoreBy(180)
-            .setFocusAlpha(true)
-            .setTargetDir(TEMP_DIR)
             .filter { path -> !(TextUtils.isEmpty(path) || path.toLowerCase().endsWith(".gif")) }
             .setCompressListener(object : OnCompressListener {
                 override fun onStart() {
@@ -124,7 +122,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * File to Bitmap
      */
-    fun getBitmapFromFile(file: File): Bitmap? {
+    private fun getBitmapFromFile(file: File): Bitmap? {
         var image: Bitmap? = null
         try {
             val stream = FileInputStream(file)
@@ -163,19 +161,6 @@ class MainActivity : AppCompatActivity() {
         ivImage.setImageBitmap(bmp2)
         tvMessage.text = str
     }
-
-    /**
-     * A native method that is implemented by the 'libfacedetection' native library,
-     * which is packaged with this application.
-     */
-//    external fun facedetect(matAddr: Long): Array<Face>
-
-//    companion object {
-//        // Used to load the 'facedetection' library on application startup.
-//        init {
-//            System.loadLibrary("facedetection")
-//        }
-//    }
 
     fun getFileSize(file: File): String {
         var size: String

@@ -52,7 +52,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     implementation project(path: ':openCVJava')
-    implementation project(path: ':Luban')
+    implementation project(path: ':luban')
     implementation 'com.zhihu.android:matisse:0.5.2'
     implementation 'com.squareup.picasso:picasso:2.5.2'
 }
