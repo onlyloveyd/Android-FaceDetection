@@ -1,2 +1,2 @@
 include ':app', ':luban'
-include ':openCVJava'
+include ':sdk'
