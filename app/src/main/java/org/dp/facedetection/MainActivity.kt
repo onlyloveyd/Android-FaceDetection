@@ -2,23 +2,25 @@ package org.dp.facedetection
 
 import android.Manifest
 import android.app.Activity
+import android.app.ActivityManager
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.text.TextUtils
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.zhihu.matisse.Matisse
-import com.zhihu.matisse.MimeType
-import com.zhihu.matisse.engine.impl.PicassoEngine
-import com.zhihu.matisse.internal.entity.CaptureStrategy
+import androidx.databinding.DataBindingUtil
+import org.dp.facedetection.databinding.ActivityMainBinding
 import org.luban.Luban
 import org.luban.OnCompressListener
 import org.opencv.android.Utils
@@ -33,75 +35,81 @@ import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
-    private val PERMISSION_REQUEST_CODE = 551
+    private val PERMISSION_REQUEST_EXTERNAL_STORAGE = 1
+    private val PERMISSION_REQUEST_CAMERA = 2
 
-    private lateinit var tvMessage: TextView
-    private lateinit var btTakePhoto: Button
-    private lateinit var ivImage: ImageView
+    private var mTakePhotoSavePath: String = ""
 
-    private val REQUEST_PERMISSION =
-        arrayOf(
-            Manifest.permission.CAMERA,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-        )
 
-    private val REQUEST_CODE_CHOOSE = 1001
-
-    lateinit var selectedPath: String
-
+    private val REQUEST_CODE_CHOOSE_IMAGE = 1001
+    private val REQUEST_CODE_TAKE_PHOTO = 1002
     lateinit var faceDetect: FaceDetect
+
+    private lateinit var mBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         faceDetect = FaceDetect()
-        tvMessage = findViewById(R.id.textView)
-        ivImage = findViewById(R.id.imageView)
-        btTakePhoto = findViewById(R.id.btPhoto)
-        btTakePhoto.setOnClickListener {
-            if (checkPermission()) {
-                pickPic()
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_pick, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.take_photo -> {
+                if (checkCameraPermission()) {
+                    takePhoto()
+                }
+            }
+            R.id.choose_image -> {
+                if (checkExternalStoragePermission()) {
+                    chooseImage()
+                }
+            }
+        }
+        return true
+    }
+
+    private fun checkExternalStoragePermission(): Boolean {
+        return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            true
+        } else {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                requestPermissions(
+                    arrayOf(
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ), PERMISSION_REQUEST_EXTERNAL_STORAGE
+                )
+                false
+            } else {
+                true
             }
         }
     }
 
-    private fun pickPic() {
-        Matisse.from(this)
-            .choose(MimeType.ofImage())
-            .countable(true)
-            .capture(true)
-            .captureStrategy(
-                CaptureStrategy(
-                    true,
-                    "org.dp.facedetection.fileprovider",
-                    "facedetection"
-                )
-            )
-            .maxSelectable(1)
-            .imageEngine(PicassoEngine())
-            .theme(R.style.Matisse_Dracula)
-            .forResult(REQUEST_CODE_CHOOSE)
-    }
-
-    private fun checkPermission(): Boolean {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            return true
+    private fun checkCameraPermission(): Boolean {
+        return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            true
         } else {
-            if (this.isFinishing) {
-                return false
-            }
-            return if (ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+            if (ContextCompat.checkSelfPermission(
                     this,
                     Manifest.permission.CAMERA
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
                 requestPermissions(
-                    REQUEST_PERMISSION,
-                    PERMISSION_REQUEST_CODE
+                    arrayOf(
+                        Manifest.permission.CAMERA
+                    ), PERMISSION_REQUEST_CAMERA
                 )
                 false
             } else {
@@ -115,23 +123,41 @@ class MainActivity : AppCompatActivity() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        if (requestCode == PERMISSION_REQUEST_CODE) {
-            if (grantResults.size == 2
-                && grantResults[0] == PackageManager.PERMISSION_GRANTED
-                && grantResults[1] == PackageManager.PERMISSION_GRANTED
-            ) {
-                pickPic()
-            } else {
-                Toast.makeText(this, "未授权，无法选择图片", Toast.LENGTH_SHORT).show()
+        if (requestCode == PERMISSION_REQUEST_EXTERNAL_STORAGE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                chooseImage()
+            }
+        } else if (requestCode == PERMISSION_REQUEST_CAMERA) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                takePhoto()
             }
         }
     }
 
+    private fun takePhoto() {
+        mTakePhotoSavePath =
+            cacheDir.absolutePath + File.separator + System.currentTimeMillis() + ".jpg"
+        MediaStoreUtils.takePhoto(this, REQUEST_CODE_TAKE_PHOTO, mTakePhotoSavePath)
+    }
+
+    private fun chooseImage() {
+        MediaStoreUtils.pickImage(this, REQUEST_CODE_CHOOSE_IMAGE)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_CHOOSE) {
-            selectedPath = Matisse.obtainPathResult(data)[0]
-            compressPic(selectedPath)
+        if (resultCode != Activity.RESULT_OK) {
+            return
+        }
+        if (requestCode == REQUEST_CODE_TAKE_PHOTO) {
+            compressPic(mTakePhotoSavePath)
+            mTakePhotoSavePath = ""
+        } else if (requestCode == REQUEST_CODE_CHOOSE_IMAGE) {
+            val uri = data?.data
+            val path = MediaStoreUtils.getMediaPath(this, uri)
+            if (path != null) {
+                compressPic(path)
+            }
         }
     }
 
@@ -179,7 +205,7 @@ class MainActivity : AppCompatActivity() {
     fun fileFaceDetection(file: File) {
         val bmp = getBitmapFromFile(file)
         var str = "image size = ${bmp?.width}x${bmp?.height} ${getFileSize(file)}\n"
-        ivImage.setImageBitmap(bmp)
+        mBinding.imageView.setImageBitmap(bmp)
         val mat = MatOfRect()
         val bmp2 = bmp?.copy(bmp.config, true)
         Utils.bitmapToMat(bmp, mat)
@@ -199,8 +225,8 @@ class MainActivity : AppCompatActivity() {
 
         str += "detectTime = ${System.currentTimeMillis() - startTime}ms\n"
         Utils.matToBitmap(mat, bmp2)
-        ivImage.setImageBitmap(bmp2)
-        tvMessage.text = str
+        mBinding.imageView.setImageBitmap(bmp2)
+        mBinding.textView.text = str
     }
 
     private fun getFileSize(file: File): String {
@@ -208,14 +234,19 @@ class MainActivity : AppCompatActivity() {
         if (file.exists() && file.isFile) {
             val fileS = file.length()
             val df = DecimalFormat("#.00")
-            if (fileS < 1024) {
-                size = df.format(fileS.toDouble()) + "BT"
-            } else if (fileS < 1048576) {
-                size = df.format(fileS.toDouble() / 1024) + "KB"
-            } else if (fileS < 1073741824) {
-                size = df.format(fileS.toDouble() / 1048576) + "MB"
-            } else {
-                size = df.format(fileS.toDouble() / 1073741824) + "GB"
+            size = when {
+                fileS < 1024 -> {
+                    df.format(fileS.toDouble()) + "BT"
+                }
+                fileS < 1048576 -> {
+                    df.format(fileS.toDouble() / 1024) + "KB"
+                }
+                fileS < 1073741824 -> {
+                    df.format(fileS.toDouble() / 1048576) + "MB"
+                }
+                else -> {
+                    df.format(fileS.toDouble() / 1073741824) + "GB"
+                }
             }
         } else if (file.exists() && file.isDirectory) {
             size = ""

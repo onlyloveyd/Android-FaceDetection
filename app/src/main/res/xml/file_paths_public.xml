@@ -1,5 +1,8 @@
 <paths>
     <external-path
         name="my_images"
-        path="Pictures"/>
+        path="Pictures" />
+    <cache-path
+        name="my_cache"
+        path="/" />
 </paths>
