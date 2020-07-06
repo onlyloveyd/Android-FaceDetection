@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * 人脸识别
  *
- * @author jiangyujiang
+ * @author yidong
  * @date 2019-11-13
  */
 public class FaceDetect {
